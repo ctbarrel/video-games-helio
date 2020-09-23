@@ -3,6 +3,7 @@ const router = express.Router()
 
 const db = require('../../db/mongo')
 
+// GET VIDEO GAMES LIST
 router.get('/', function (req, res, next) {
     const info = {
         query: {},
@@ -18,3 +19,17 @@ router.get('/', function (req, res, next) {
 })
 
 module.exports = router
+
+router.post('/', function (req, res, next) {
+    const info = {
+        doc: req.body,
+        collection: req.app.locals.collectionVideoGames
+    }
+    db.createOne(info)
+    .then(data => {
+        res.json(data.ops[0])
+    })
+    .catch(err => {
+        console.log(err)
+    })
+})
