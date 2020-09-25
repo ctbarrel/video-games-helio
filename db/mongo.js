@@ -20,37 +20,30 @@ function connect(locals) {
 }
 
 function readAll(info) {
-    
     return info.collection.find(info.query).toArray()
 }
 
 function createOne(info) {
-
     return info.collection.insertOne(info.doc)
 }
 
 function readOne(info) {
-
     return info.collection.findOne(info.query)
 }
 
 function readOneById(info) {
-    
     return info.collection.findOne({_id: ObjectID(info.id)}) //when looking up ID, need this function.
 }
 
 function replaceOne(info) {
-
-    return info.collection.findOneAndReplace(info.query, info.doc, {returnOriginal: false})
+    return info.collection.findOneAndReplace({_id: ObjectID(info.id)}, info.doc)
 }
 
 function changeOne(info) {
-
     return info.collection.findOneAndUpdate(info.query, {$set: info.doc})
 }
 
 function deleteOne(info) {
-
     return info.collection.deleteOne({_id: ObjectID(info.id)})
 }
 

@@ -1,5 +1,7 @@
-.App {
+.App, html {
   text-align: center;
+  height: 100%;
+  background-image: linear-gradient(90deg,silver, white,silver)
 }
 
 form {
@@ -40,4 +42,10 @@ select {
 
 .game-name {
   padding: 0 10px;
+}
+
+.edit {
+  background-color: seagreen;
+  width: 4%;
+  color: white
 }
