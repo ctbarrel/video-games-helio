@@ -13,10 +13,15 @@ button {
   width: 50%;
   align-self: center;
 }
+
 .del-btn {
   background-color: indianred;
-  width: 10%;
   color: white;
+  width: 2.5%
+}
+
+.option-form input {
+  width: 10%
 }
 
 select {
@@ -28,7 +33,11 @@ select {
   float: right;
 }
 
-label {
+.labelled label {
   float: left;
   font-size: small;
+}
+
+.game-name {
+  padding: 0 10px;
 }

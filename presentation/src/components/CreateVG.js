@@ -66,7 +66,7 @@ export default class CreateVG extends Component {
 
         const displayConsoles = this.state.consoles.map((console, index) => {
             return (
-                <div key={index}>
+                <div className='option-form' key={index}>
                 <select
                     value={this.state.consoles[index]}
                     onChange={({target}) => this.handleSelectConsole(target.value, index)}
@@ -100,7 +100,7 @@ export default class CreateVG extends Component {
         })
 
         return (
-            <form id='create'>
+            <form id='create' onSubmit={this.handleSubmit}>
                 <input name='name' 
                     value={this.state.name}
                     type='text'
@@ -141,7 +141,7 @@ export default class CreateVG extends Component {
                     value='Add Console' 
                     onClick={this.handleAddConsole}
                 />
-                <div className="labelled">
+                <div>
                     <label htmlFor='owned'>Owned?</label>
                     <input name='owned' 
                         checked={this.state.owned}
@@ -149,7 +149,7 @@ export default class CreateVG extends Component {
                         onChange={this.handleChange} 
                     />
                 </div>
-                <button onSubmit={this.handleSubmit}>Add Game</button>
+                <button>Add Game</button>
             </form>
         )
     }

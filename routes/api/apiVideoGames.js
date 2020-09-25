@@ -18,8 +18,6 @@ router.get('/', function (req, res, next) {
     })
 })
 
-module.exports = router
-
 router.post('/', function (req, res, next) {
     const info = {
         doc: req.body,
@@ -33,3 +31,19 @@ router.post('/', function (req, res, next) {
         console.log(err)
     })
 })
+
+router.delete('/:id', function (req, res, next) {
+    const info = {
+        id: req.params.id,
+        collection: req.app.locals.collectionVideoGames
+    }
+    db.deleteOne(info)
+    .then(data => {
+        res.json({msg: `deleted ${info.id}`})
+    })
+    .catch(err => {
+        console.log(err)
+    })
+})
+
+module.exports = router

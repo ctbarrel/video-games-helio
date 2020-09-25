@@ -21,10 +21,13 @@ export default class extends Component {
     }
 
     render() {
-        const displayGames = this.state.videoGames.map(game => <VideoGame game={game} key={game._id}/>)
+        const displayGames = this.state.videoGames.map(game =>
+            <VideoGame game={game} 
+            key={game._id}
+            refresh={this.getVideoGames}/>)
         
         return (
-            <div>
+            <div className="app-body">
                 <h1>Video Games</h1>
                 <CreateVG refresh={this.getVideoGames}/>
                 {displayGames}
